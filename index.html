@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Phabricator & Sentry. Или как разрабатывать программные продукты проще.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+</head>
+<body class="list">
+<header class="caption">
+    <h1>Phabricator & Sentry. Или как разрабатывать программные продукты проще.</h1>
+
+    <p>ЗАО "КрасИнформ". www.krasinform.ru</p>
+</header>
+<section class="slide cover" id="Cover">
+    <div>
+        <h2>Phabricator & Sentry. Или как разрабатывать программные продукты проще.</h2>
+
+        <p>Доклад подготовлен <a href="http://astrikov.ru">Дмитрием Астриковым</a></p>
+        <img src="pictures/cover.jpg" alt="">
+        <!--
+            To apply styles to the certain slides
+            set slide ID to get needed elements
+            -->
+        <style>
+            #Cover h2 {
+                margin: 30px 0 0;
+                color: #FFF;
+                text-align: center;
+                font-size: 70px;
+            }
+
+            #Cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                color: #FFF;
+                font-style: italic;
+                font-size: 20px;
+            }
+
+            #Cover p a {
+                color: #FFF;
+            }
+        </style>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Кому это будет полезно?</h2>
+        <ol>
+            <li>Прежде всего - разработчикам</li>
+            <li>Руководителям отделов, IT-дирекции</li>
+            <li>Отделу поддержки</li>
+            <li>Всем, кто хочет более эффективно организовать свой рабочий процесс</li>
+            <li>Всем, кто мучается в поисках нужной информации в почте или джаббере</li>
+        </ol>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2>Phabricator</h2>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Phabricator</h2>
+
+        <h3><a href="http://phab.core.kran">http://phab.core.kran</a></h3>
+        <br/>
+
+        <p><strong>Phabricator</strong> - это комплексная opensource система для ведения IT проектов родом из Facebook
+        </p>
+
+        <p>
+            Он включает в себя большое количество плагинов, постоянно развивается, используется в ряде очень крупных IT
+            компаний: Facebook, Discuss, Dropbox, Haskell, DeviantArt и др.
+        </p>
+
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Phabricator</h2>
+
+        <p>В центре системы лежит сущность Проекта, с ней тесно интегрированы все остальные плагины и подсистемы.</p>
+        <img src="pictures/dashboard.png" alt="" width="100%">
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Phabricator</h2>
+
+        <p>Итак, функциональность, которая может нам пригодиться:</p>
+        <ol>
+            <li>Maniphest - трекер задач и ошибок</li>
+            <li>Diffusion - хостинг Mercurial, Git, SVN репозиториев</li>
+            <li>Differential и Audit - code-review</li>
+            <li>Paste - сниппеты</li>
+            <li>Phriction - Wiki</li>
+            <li>API</li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Projects & Maniphest</h2>
+        <ol>
+            <li>Трекинг задач и ошибок в рамках проектов</li>
+            <li>Подписка на обновления по проекту или по задаче. Очень гибкая и удобная.</li>
+            <li>Создание задачи через отправку email на адрес
+                <a href="mailto:task@phab.core.kran">task@phab.core.kran</a>
+            </li>
+            <li>Kanban доски, Scrum, спринты</li>
+            <li>Привязка репозиториев к проектам</li>
+            <li>Вся информация - в одном месте</li>
+            <li>Очень много менее значительных "плюшек"</li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Kanban? Scrum?</h2>
+
+        <p>
+            Многим понравился принцип работы в Trello, но не нравилось что критически важная информация хранится
+            на "вражеских" серверах в облаке. Phabricator живет на наших собственных серверах и закрыт извне
+            (на самом деле нет).
+        </p>
+        <img src="pictures/kanban.png" alt="" width="100%">
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Diffusion - хостинг исходного кода</h2>
+
+        <p>Функциональные особенности</p>
+        <ol>
+            <li>Хостинг Mercurial, Git, SVN репозиториев</li>
+            <li>Клонирование по HTTP и SSH (to-do)</li>
+            <li>Визуализация процесса ветвления</li>
+            <li>Возможность развить идею до CI (сборка, тесты, Jenkins, деплой)</li>
+            <li>Возможность привязки коммитов к задачам (to-do)</li>
+            <li><strong>Code-review</strong></li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Code-review и Phabricator</h2>
+
+        <p>Code-review работает даже в микрокомандах от 2-ух человек.</p>
+        <ol>
+            <li>Коммит в репозиторий проекта</li>
+            <li>Назначение ревьюеров (аудиторов)</li>
+            <li>Ревью кода. Approve или decline коммита.</li>
+        </ol>
+        <p>Весь цикл сопровождается уведомлениями по почте и в ленте активности</p>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Code-review и Phabricator</h2>
+
+        <p>Преимущества</p>
+        <ol>
+            <li>Стыдно писать плохой код</li>
+            <li>Выравнивается "скилл" команды</li>
+            <li>Все заинтересованные в курсе происходящего внутри проекта</li>
+            <li>Уходит проблема "замыленного" глаза</li>
+            <li>Более быстрое обучение новичков</li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Code-review и Phabricator</h2>
+
+        <p>Трудно понять преимущества code-review не попробовав.</p>
+        <img src="pictures/code.png" alt="" width="130%" style="margin-left:-15%;">
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Paste - сниппеты кода</h2>
+
+        <ol>
+            <li>Миграция кода из проекта в проект</li>
+            <li>Реализация рутинных задач</li>
+            <li>Шаблоны конфигураций</li>
+        </ol>
+        <img src="pictures/paste.png" alt="" width="100%">
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Phriction - wiki</h2>
+
+        <ol>
+            <li>Документация по проектам</li>
+            <li>Справочная информация по инфраструктуре (например, доступ к серверам)</li>
+            <li>Другая корпоративная информация</li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Недостатки решения</h2>
+
+        <ol>
+            <li>Интерфейс - на английском (есть пакеты для интернационализации)</li>
+            <li>К интерфейсу нужно привыкнуть</li>
+            <li>Нет некоторых фич, которые есть в платных аналогах (продукты Atlassian)</li>
+            <li>Не очень прозрачная работа с подзадачами</li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Аналоги</h2>
+
+        <ol>
+            <li>
+                Продукты Atlassian - JIRA + Stash + HipChat + Confluence. Очень крутые, но платные и достаточно дорогие
+            </li>
+            <li>YouTrack от JetBrains. Платный</li>
+            <li>Отдельные системы - Redmine, SCM Manager и др. Интеграция между такими системами достаточно кривая</li>
+        </ol>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2>Sentry</h2>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Централизованный мониторинг ошибок</h2>
+
+        <p>
+            <a href="http://sentry.krasinform.ru">http://sentry.krasinform.ru</a>
+        </p>
+        <ol>
+            <li>Все ошибки - в одном месте</li>
+            <li>Асинхронность и real-time мониторинг</li>
+            <li>Очень простая интеграция в готовый проект</li>
+            <li>Оповещение об ошибке по почте</li>
+            <li>Исчерпывающая информация по ошибкам</li>
+            <li>Логгировать можно все что угодно и это не потребует больших усилий</li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Простая интеграция - C#</h2>
+        <ol>
+            <li>
+                Установить raven-csharp (есть на github)
+            </li>
+            <li>
+                Инцициализировать клиент
+                <pre>
+                    <code>ravenClient = new RavenClient("...");</code>
+                </pre>
+            </li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Простая интеграция - C#</h2>
+        <pre>
+            <code>try</code>
+            <code>{</code>
+            <code> int i2 = 0;</code>
+            <code> int i = 10 / i2;</code>
+            <code>}</code>
+            <code>catch (Exception e)</code>
+            <code>{</code>
+            <code> ravenClient.CaptureException(e);</code>
+            <code>}</code>
+        </pre>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Мониторинг</h2>
+        <img src="pictures/sentry.png" alt="" width="100%">
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <img src="pictures/sentry2.png" alt="" width="100%">
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Недостатки решения</h2>
+
+        <ol>
+            <li>Для некоторых платформ информация об ошибке недостаточно подробна (можно обойти с помощью дополнительных
+                методов)
+            </li>
+            <li>Нет фильтрации по кастомным параметрам (можно допилить)</li>
+        </ol>
+    </div>
+</section>
+<section class="slide">
+    <div>
+        <h2>Ссылки</h2>
+
+        <ol>
+            <li>
+                http://phabricator.org
+            </li>
+            <li>
+                http://getsentry.com
+            </li>
+        </ol>
+        <ol>
+            <li>
+                http://phab.core.kran
+            </li>
+            <li>
+                http://sentry.krasinform.ru
+            </li>
+        </ol>
+    </div>
+</section>
+<section class="slide shout">
+    <div>
+        <h2>Спасибо!</h2>
+    </div>
+</section>
+<!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+<div class="progress">
+    <div></div>
+</div>
+<script src="shower/shower.min.js"></script>
+<!-- Copyright © 2014 Yours Truly, Famous Inc. -->
+<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
